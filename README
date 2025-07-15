@@ -1,0 +1,130 @@
+# SkillSync – Scalable Job Board Backend
+
+A full-featured backend API built with **FastAPI**, designed to simulate a real-world developer job board. The project is built to cover everything a production-ready backend engineer should know: authentication, caching, background processing, cloud deployment, observability, security, and DevOps.
+
+---
+
+## 🚀 Project Objectives
+
+- ✅ Learn and implement production-grade backend skills in a single full-stack backend app.
+- ✅ Follow best practices for RESTful API design, modular architecture, and scalable deployments.
+- ✅ Gain hands-on experience with cloud (AWS), Docker, CI/CD, Redis, Celery, logging, and more.
+
+---
+
+## 🧰 Tech Stack
+
+| Layer | Tool |
+|-------|------|
+| Language | Python 3.11 |
+| Framework | FastAPI |
+| Database | PostgreSQL (via SQLAlchemy) |
+| Caching | Redis |
+| Queue | Celery + Redis |
+| File Storage | AWS S3 |
+| Auth | OAuth2 + JWT |
+| CI/CD | GitHub Actions |
+| Containerization | Docker & Docker Compose |
+| Reverse Proxy | NGINX |
+| Deployment | AWS EC2, S3, RDS |
+| Monitoring | Sentry, ELK stack (manual/local) |
+
+---
+
+## ✅ Feature Checklist
+
+### 👤 Authentication & Authorization
+- [ ] JWT-based signup/login
+- [ ] OAuth2 flow
+- [ ] Password hashing with `passlib`
+- [ ] Role-based access control (admin, applicant, recruiter)
+- [ ] Authenticated/permissioned endpoints
+
+---
+
+### 📁 File Upload
+- [ ] Resume upload (PDF/DOCX) to S3
+- [ ] File validation (size, type)
+- [ ] Secure file access using presigned URLs
+
+---
+
+### 🧾 Job Management
+- [ ] CRUD operations (create, list, update, delete)
+- [ ] Filter by location, skill, salary range
+- [ ] Pagination & sorting
+- [ ] Only recruiter role can post/edit jobs
+
+---
+
+### 📬 Background Tasks
+- [ ] Celery worker integration
+- [ ] Send job alerts to applicants
+- [ ] Retry failed tasks
+
+---
+
+### 🔍 Caching
+- [ ] Redis caching for job listings (cache-aside)
+- [ ] TTL and cache invalidation on new job post/edit
+
+---
+
+### 🛡️ Security
+- [ ] Rate limiting with `slowapi`
+- [ ] OWASP best practices (input sanitization, XSS, CSRF prevention)
+- [ ] Secure headers (`Strict-Transport-Security`, `X-Content-Type-Options`)
+- [ ] HTTPS setup with Let’s Encrypt
+
+---
+
+### 🧪 Testing & Quality
+- [ ] Unit tests for all endpoints using `pytest`
+- [ ] Integration tests with test DB
+- [ ] Code linting (`flake8`, `black`, `mypy`)
+- [ ] Contract testing (optional: `schemathesis`)
+
+---
+
+### 📦 DevOps & CI/CD
+- [ ] Dockerized app (multi-stage build)
+- [ ] Docker Compose for local dev
+- [ ] GitHub Actions CI (test + lint)
+- [ ] GitHub Actions CD (optional deployment to EC2)
+- [ ] `.env` & secrets best practices
+
+---
+
+### ☁️ AWS Deployment
+- [ ] EC2 hosting with Uvicorn + Gunicorn
+- [ ] NGINX reverse proxy with HTTPS
+- [ ] PostgreSQL on RDS
+- [ ] AWS S3 for resume storage
+- [ ] IAM roles and policies for restricted access
+
+---
+
+### 📊 Monitoring & Logging
+- [ ] Structured logs with log levels
+- [ ] Sentry for error tracking
+- [ ] Manual/optional: ELK stack or Grafana integration
+
+---
+
+## 📁 Project Structure
+skillsync-backend/
+├── app/
+│ ├── api/ # Routers
+│ ├── core/ # Settings, config, auth setup
+│ ├── models/ # SQLAlchemy models
+│ ├── schemas/ # Pydantic schemas
+│ ├── services/ # Business logic
+│ ├── tasks/ # Celery workers
+│ ├── middlewares/
+│ └── main.py
+├── tests/
+├── Dockerfile
+├── docker-compose.yml
+├── .env
+├── .github/workflows/
+└── README.md
